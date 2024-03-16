@@ -4,10 +4,11 @@ const app = express();
 const conversorMoedas = require('./services/service');
 
 app.get('/conversor', (req, res) => {
-    let USD = parseFloat(req.query.USD);
-    let BRL = conversorMoedas.converteParaReal(USD);
+    let moeda = req.query.moeda;
+    let valor = req.query.valor;
+    let moedaConvertida = conversorMoedas.conversaoMoeda(moeda, valor);
 
-    res.json({Real : BRL});
+    res.json({valorConversao : moedaConvertida});
 });
 
 app.listen(8080, () => {
