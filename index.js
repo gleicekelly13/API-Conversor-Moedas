@@ -5,10 +5,10 @@ const conversorMoedas = require('./services/service');
 
 app.get('/conversor', (req, res) => {
     let moeda = req.query.moeda;
-    let valor = req.query.valor;
+    let valor = parseFloat(req.query.valor);
     let moedaConvertida = conversorMoedas.conversaoMoeda(moeda, valor);
 
-    res.json({valorConversao : moedaConvertida});
+    res.json({valorConversao : moedaConvertida.toFixed(2)});
 });
 
 app.listen(8080, () => {
