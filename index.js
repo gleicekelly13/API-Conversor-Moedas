@@ -8,7 +8,12 @@ app.get('/conversor', (req, res) => {
     let valor = parseFloat(req.query.valor);
     let moedaConvertida = conversorMoedas.conversaoMoeda(moeda, valor);
 
-    res.json({valorConversao : moedaConvertida.toFixed(2)});
+    if(moedaConvertida) {
+        res.json({valorConversao : moedaConvertida.toFixed(2)});
+    } else if (isNaN(parseFloat(req.query.valor)) || isNaN(parseFloat(req.query.moeda)) ) {
+        res.status(400).json({'Erro' : 'Requisição inválida!'});
+    }
+    
 });
 
 app.listen(8080, () => {
