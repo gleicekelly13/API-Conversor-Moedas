@@ -9,6 +9,8 @@ function conversaoMoeda(moeda, valor) {
         resultado = converteEuroParaReal(valor);
     }  else if (moeda === 'R€') {
         resultado = converteRealParaEuro(valor);
+    } else if (moeda === '£') {
+        resultado = converteLibraParaReal(valor);
     }
 
 
@@ -33,6 +35,11 @@ function converteEuroParaReal (EUR) {
 function converteRealParaEuro (BRL) {
     let EUR = BRL * 0.19;
     return EUR; 
+}
+
+function converteLibraParaReal (GBP) {
+    let BRL = GBP * 6.30;
+    return BRL;
 }
 
 exports.conversaoMoeda = conversaoMoeda;
