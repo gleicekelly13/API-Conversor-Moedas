@@ -4,7 +4,7 @@ function conversaoMoeda(moeda, valor) {
     if(moeda === 'US$') {
         resultado = converteRealParaDolar(valor);
     } else if (moeda === 'R$') {
-        resultado = converteParaReal(valor); 
+        resultado = converteDolarParaReal(valor); 
     } else if (moeda === '€') {
         resultado = converteEuroParaReal(valor);
     }  else if (moeda === 'R€') {
@@ -17,7 +17,7 @@ function conversaoMoeda(moeda, valor) {
     return resultado;
 }
 
-function converteParaReal (USD) {
+function converteDolarParaReal (USD) {
     let BRL = USD * 5.00;
     return BRL;
 };
