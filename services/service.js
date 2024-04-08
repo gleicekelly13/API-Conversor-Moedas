@@ -13,6 +13,8 @@ function conversaoMoeda(moeda, valor) {
         resultado = converteLibraParaReal(valor);
     } else if (moeda === 'R£') {
         resultado = converteRealParaLibra(valor);
+    } else if (moeda === 'P$') {
+        resultado = convertePesoParaReal(valor);
     }
 
 
@@ -48,5 +50,11 @@ function converteRealParaLibra(BRL) {
     let GBP = BRL * 0.16;
     return GBP;
 }
+
+function convertePesoParaReal (ARS) {
+    let BRL = ARS * 0.0058;
+    return BRL;
+}
+
 
 exports.conversaoMoeda = conversaoMoeda;
